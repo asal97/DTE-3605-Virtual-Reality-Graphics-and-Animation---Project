@@ -1,0 +1,13 @@
+# SCsub
+
+Import('env')
+
+module_env = env.Clone()
+module_env.add_source_files(env.modules_sources, "*.cpp")
+module_env.Append(CCFLAGS=['-O2'])
+
+# src_list = ["Sphero.cpp", "register_types.cpp"]
+# env.add_source_files(env.modules_sources, src_list)
+
+# env.Append(CPPPATH=["modules/Sphero"]) # this is a relative path
+# env.Append(CPPPATH=["C:/Users/Asal/godot/modules/Sphero"]) # this is an 'absolute' path

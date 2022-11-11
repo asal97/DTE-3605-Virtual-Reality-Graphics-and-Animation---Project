@@ -1,0 +1,39 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Wall.gd" type="Script" id=1]
+[ext_resource path="res://Moss002_2K-JPG/Moss002_2K_Color.jpg" type="Texture" id=2]
+[ext_resource path="res://Moss002_2K-JPG/Moss002_2K_Roughness.jpg" type="Texture" id=3]
+[ext_resource path="res://Moss002_2K-JPG/Moss002_2K_NormalDX.jpg" type="Texture" id=4]
+[ext_resource path="res://Moss002_2K-JPG/Moss002_2K_AmbientOcclusion.jpg" type="Texture" id=5]
+[ext_resource path="res://Moss002_2K-JPG/Moss002_2K_Displacement.jpg" type="Texture" id=6]
+
+[sub_resource type="CubeMesh" id=2]
+size = Vector3( 0.3, 0.5, 0.3 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_texture = ExtResource( 2 )
+roughness_texture = ExtResource( 3 )
+normal_enabled = true
+normal_scale = 1.0
+normal_texture = ExtResource( 4 )
+ao_enabled = true
+ao_light_affect = 0.0
+ao_texture = ExtResource( 5 )
+ao_on_uv2 = false
+ao_texture_channel = 0
+depth_enabled = true
+depth_scale = 0.05
+depth_deep_parallax = false
+depth_flip_tangent = false
+depth_flip_binormal = false
+depth_texture = ExtResource( 6 )
+
+[node name="Wall" type="KinematicBody"]
+script = ExtResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 2 )
+material/0 = SubResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
